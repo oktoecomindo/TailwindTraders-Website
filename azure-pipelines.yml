@@ -13,11 +13,13 @@ steps:
     location: $(location)
     csmFile: Deploy/deployment.json
 
-- task: keesschollaart.arm-outputs.arm-outputs.ARM Outputs@5
+- task: ARM Outputs@6
   displayName: ARM Outputs
   inputs:
     ConnectedServiceNameARM: $(azureSubscription)
     resourceGroupName: $(resourcegroup)
+    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+
 
 - task: Docker@1
   displayName: 'Build an image'
